@@ -42,8 +42,8 @@
 </div>
 <button class="post-scroll" on="tap:top.scrollTo(duration=200)" >&#8593;</button>
 
-<footer class="bottom">{{{@amp.footerText}}}</footer>
-{{> amp-menu menus.mainMenu}}
+<footer class="bottom">{{{@config.custom.copyrightText}}}</footer>
+{{> menu menus.mainMenu}}
 
 {{#if @amp.GAID}}
 <amp-analytics type="googleanalytics" id="analytics1">
@@ -63,7 +63,7 @@
 </amp-analytics>
 {{/if}}
 
-{{{@footerAmpCustomCode}}}
-
+{{{@footerCustomCode}}}
+{{{ publiiFooter }}}
 </body>
 </html>
