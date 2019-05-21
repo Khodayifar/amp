@@ -37,45 +37,67 @@
                 {{/if}}
             {{/featuredImage}}
 
-            <div class="wrap-inner">
-              <header class="post-header">
-                <h1> {{title}} </h1>
-                <p class="post-meta">
-                    {{#author}}
-                    {{ translate 'post.publishedBy' }} <a href="{{url}}" rel="nofollow" title="{{name}}">{{name}}</a>
-                    {{/author}}
-                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                        {{#checkIf @config.custom.formatDate '!=' 'custom'}}
-                            {{date createdAt @config.custom.formatDate}}
-                        {{else}}
-                            {{date createdAt @config.custom.formatDateCustom}}
-                        {{/checkIf}}
-                    </time>
-                </p>
-            </header>
+             <div class="wrap-inner">
+                <header class="post-header">
+                    <h1>
+                        {{title}}
+                    </h1>
+                    {{#checkIfAny @config.post.displayDate @config.post.displayAuthor}}
+                        <p class="post-meta">
+                            {{#if @config.post.displayAuthor}}
+                                {{#author}}
+                                    {{ translate 'post.publishedBy' }}
+                                    <a href="{{url}}" rel="nofollow" title="{{name}}">{{name}}</a>
+                                {{/author}}
+                            {{/if}}
+                            {{#if @config.post.displayDate}}
+                                <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                                    {{date createdAt @config.custom.formatDate}}
+                                </time>
+                            {{/if}}
+                        </p>
+                    {{/checkIfAny}}
+                </header>
 
-            {{{text}}}
+                {{{text}}}
 
-             <aside>
-                {{#if tags}}
-                   <ul class="post-tag">
-                     {{#each tags}}
-                       <li>
-                           <a href="{{url}}">{{name}}</a>
-                        </li>
-                     {{/each}}
-                  </ul>
-               {{/if}}
-               {{#if @amp.shareButtons}}
-                  <div class="post-share">
-                     {{> amp-share-buttons}}
-                  </div>
-               {{/if}}
-             </aside>
+                {{#checkIfAny @config.post.displayTags @config.post.displayShareButtons}}
+                    <aside>
+                        {{#if @config.post.displayTags}}
+                            {{#if tags}}
+                                <ul class="post-tag">
+                                    {{#each tags}}
+                                       <li>
+                                           <a href="{{url}}">{{name}}</a>
+                                        </li>
+                                     {{/each}}
+                                </ul>
+                             {{/if}}
+                        {{/if}}
+                    </aside>
+                 {{/checkIfAny}}
             </div>
         </article>
 
         {{/post}}
+        {{#if @config.post.displayPostNavigation}}
+            <nav class="post-pagination wrap-inner">
+                {{#previousPost}}
+                    <div class="post-pagination-prev">
+                        <span>{{ translate 'post.previousPost' }}</span>
+                        <a href="{{url}}">{{title}}</a>
+                    </div>
+                {{/previousPost}}
+
+                {{#nextPost}}
+                    <div class="post-pagination-next">
+                        <span>{{ translate 'post.nextPost' }}</span>
+                        <a href="{{url}}">{{title}}</a>
+                    </div>
+                {{/nextPost}}
+            </nav>
+         {{/if}}
+
 
     </main>
 {{> footer}}
