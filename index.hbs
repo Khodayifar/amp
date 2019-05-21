@@ -41,10 +41,7 @@
                 <p>{{{excerpt}}}</p>
 
                 <p class="card-meta">
-                   {{#author}}
-                    {{ translate 'post.publishedBy' }} <a href="{{url}}" rel="nofollow" title="{{name}}">{{name}}</a>
-                    {{/author}}
-                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                   <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
                         {{#checkIf @config.custom.formatDate '!=' 'custom'}}
                             {{date createdAt @config.custom.formatDate}}
                         {{else}}
