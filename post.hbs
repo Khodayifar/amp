@@ -1,12 +1,12 @@
 {{> head}}
 
-    <main class="wrap-page">
+    <main class=wrap-page>
         {{#post}}
-        <article class="post">
+        <article class=post>
 
             {{#featuredImage}}
                 {{#if url}}
-                <figure class="post-featured-image">
+                <figure class=post-featured-image>
                     <amp-img
                         src="{{url}}"
                         alt="{{alt}}"
@@ -37,45 +37,31 @@
                 {{/if}}
             {{/featuredImage}}
 
-             <div class="wrap-inner">
-                <header class="post-header">
+             <div class=wrap-inner>
+                <header class=post-header>
                     <h1>
                         {{title}}
                     </h1>
-                    {{#checkIfAny @config.post.displayDate @config.post.displayAuthor}}
-                        <p class="post-meta">
-                            {{#if @config.post.displayAuthor}}
-                                {{#author}}
-                                    {{ translate 'post.publishedBy' }}
-                                    <a href="{{url}}" rel="nofollow" title="{{name}}">{{name}}</a>
-                                {{/author}}
-                            {{/if}}
-                            {{#if @config.post.displayDate}}
-                                <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                                    {{date createdAt @config.custom.formatDate}}
-                                </time>
-                            {{/if}}
-                        </p>
-                    {{/checkIfAny}}
                 </header>
 
                 {{{text}}}
 
-                {{#checkIfAny @config.post.displayTags @config.post.displayShareButtons}}
-                    <aside>
+                {{#checkIfAny @config.post.displayTags @config.post.displayDate}}
+                       <div class=card-meta>
                         {{#if @config.post.displayTags}}
-                            {{#if tags}}
-                                <ul class="post-tag">
+                            <div>{{#if tags}}
                                     {{#each tags}}
-                                       <li>
-                                           <a href="{{url}}">{{name}}</a>
-                                        </li>
+                                           <a class=btn href="{{url}}">{{name}}</a>
                                      {{/each}}
-                                </ul>
-                             {{/if}}
+                            {{/if}}</div>
                         {{/if}}
-                    </aside>
-                 {{/checkIfAny}}
+                        {{#if @config.post.displayDate}}
+                            <div class=zaman>
+                                {{date modifiedAt @config.custom.formatDateCustom}}
+                            </div>
+                        </div>
+                        {{/if}}
+                {{/checkIfAny}}
             </div>
         </article>
 
@@ -83,14 +69,14 @@
         {{#if @config.post.displayPostNavigation}}
             <nav class="post-pagination wrap-inner">
                 {{#previousPost}}
-                    <div class="post-pagination-prev">
+                    <div class=post-pagination-prev>
                         <span>{{ translate 'post.previousPost' }}</span>
                         <a href="{{url}}">{{title}}</a>
                     </div>
                 {{/previousPost}}
 
                 {{#nextPost}}
-                    <div class="post-pagination-next">
+                    <div class=post-pagination-next>
                         <span>{{ translate 'post.nextPost' }}</span>
                         <a href="{{url}}">{{title}}</a>
                     </div>

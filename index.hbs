@@ -1,8 +1,8 @@
 {{> head}}
 
-    <main class="wrap-page">
+    <main class=wrap-page>
         {{#each posts}}
-       <article class="card">
+       <article class=card>
 
            {{#featuredImage}}
                 {{#if url}}
@@ -33,24 +33,27 @@
             {{/featuredImage}}
 
 
-            <div class="card-text">
+            <div class=card-text>
                 <h2>
                     <a href="{{url}}"> {{title}} </a>
                 </h2>
 
                 <p>{{{excerpt}}}</p>
 
-                <p class="card-meta">
-                   <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                <div class=card-meta>
+                  <div>{{#if tags}}
+                   {{#each tags}}
+                     <a class=btn href="{{url}}">{{name}}</a>
+                   {{/each}}
+                  {{/if}}</div>
+                  <div class=zaman>
                         {{#checkIf @config.custom.formatDate '!=' 'custom'}}
-                            {{date createdAt @config.custom.formatDate}}
+                           {{date modifiedAt @config.custom.formatDate}}
                         {{else}}
-                            {{date createdAt @config.custom.formatDateCustom}}
+                           {{date modifiedAt @config.custom.formatDateCustom}}
                         {{/checkIf}}
-                    </time>
-                </p>
-
-            </div>
+                  </div>
+               </div>
 
         </article>
         {{/each}}
