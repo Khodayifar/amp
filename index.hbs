@@ -46,7 +46,7 @@
                      <a class=btn href="{{url}}">{{name}}</a>
                    {{/each}}
                   {{/if}}</div>
-                  <time class=zaman datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
+                  <time datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
                         {{#checkIf @config.custom.formatDate '!=' 'custom'}}
                            {{date modifiedAt @config.custom.formatDate}}
                         {{else}}
