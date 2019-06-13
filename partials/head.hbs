@@ -25,6 +25,18 @@
 {{/if}}
 {{jsonLD}}
 <style amp-custom>
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: normal;
+	src:url('/IRANSansWeb.woff2') format('woff2')
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: bold;
+	src:url('/IRANSansWeb_Bold.woff2') format('woff2')
+}
 aside,
 footer,
 header,
@@ -42,7 +54,7 @@ input,
 select,
 textarea{font:inherit;}
 html{font-size:1rem;direction:rtl;}
-body{background:#f1f1f1;color:#262626;font-family:sans-serif;line-height:1.6;}
+body{background:#f1f1f1;color:#262626;font-family:IRANSans,sans-serif;line-height:1.6;}
 a{color:#304FFE;text-decoration:none;-webkit-transition:all 0.12s linear 0s;-o-transition:all 0.12s linear 0s;transition:all 0.12s linear 0s;}
 a:hover{color:#262626;text-decoration:underline;-webkit-text-decoration-skip:ink;text-decoration-skip:ink;}
 a:active{color:#262626;}
@@ -61,7 +73,7 @@ h2,
 h3,
 h4,
 h5,
-h6{color:#212121;font-family:sans-serif;font-weight:700;line-height:1.2;margin-top:2.13333rem;}
+h6{color:#212121;font-family:IRANSans,sans-serif;font-weight:700;line-height:1.2;margin-top:2.13333rem;}
 h1{font-size:1.67583rem;font-weight:700;}
 h2{font-size:1.4729rem;}
 h3{font-size:1.29454rem;}
@@ -75,7 +87,7 @@ h5 + p,
 h6 + p{margin-top:0.8rem;}
 b,
 strong{font-weight:700;}
-blockquote{color:#6c7175;font-family:serif;font-style:italic;padding:1.33333rem 0.53333rem 1.33333rem 3.2rem;position:relative;}
+blockquote{color:#6c7175;font-family:IRANSans,serif;font-style:italic;padding:1.33333rem 0.53333rem 1.33333rem 3.2rem;position:relative;}
 blockquote:before{display:block;content:"\201C";font-size:4.41226rem;position:absolute;left:0;top:-12px;color:rgba(108, 113, 117, 0.5);}
 blockquote >:nth-child(1){margin-top:0;}
 ul,
