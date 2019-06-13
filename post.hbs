@@ -2,7 +2,7 @@
 
     <main class=wrap-page>
         {{#post}}
-        <article class=post>
+        <article class=card>
 
             {{#featuredImage}}
                 {{#if url}}
@@ -37,7 +37,7 @@
                 {{/if}}
             {{/featuredImage}}
 
-             <div class=wrap-inner>
+             <div class=card-text>
                 <header class=post-header>
                     <h1>
                         {{title}}
@@ -70,14 +70,14 @@
             <nav class="post-pagination wrap-inner">
                 {{#previousPost}}
                     <div class=post-pagination-prev>
-                        <span>{{ translate 'post.previousPost' }}</span>
+                        <span>قبلی</span>
                         <a href="{{url}}">{{title}}</a>
                     </div>
                 {{/previousPost}}
 
                 {{#nextPost}}
                     <div class=post-pagination-next>
-                        <span>{{ translate 'post.nextPost' }}</span>
+                        <span>بعدی</span>
                         <a href="{{url}}">{{title}}</a>
                     </div>
                 {{/nextPost}}
