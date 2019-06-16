@@ -1,20 +1,20 @@
 {
     "partials": {
-        
+
         "disqus": {
             "noscript1": "Please enable JavaScript to view the",
             "noscript2": "comments powered by Disqus."
         },
-        
+
         "menu": {
             "label": "Menu"
         },
-        
+
         "pagination": {
             "prev": "Previous",
             "next": "Next"
         },
-        
+
         "shareButtons": {
             "shareWithFacebook": "Facebook",
             "shareWithTwitter": "Twitter",
@@ -24,12 +24,12 @@
             "shareWithLinkedIn": "LinkedIn",
             "shareWithBuffer": "Buffer"
         },
-        
+
         "footer": {
             "backToTop": "Back to top"
         }
     },
-    
+
     "post": {
         "publishedBy": "By",
         "relatedPosts": "You should also read:",
@@ -39,7 +39,7 @@
         "previousPost": "Previous",
         "nextPost": "Next"
     },
-    
+
     "error": {
         "404": "404",
         "message-1": "Page not found",
@@ -47,7 +47,7 @@
         "button": "Go home"
 
     },
-    
+
     "search": {
         "placeholder": "search...",
         "search": "Search",
