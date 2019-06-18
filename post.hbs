@@ -56,9 +56,9 @@
                             {{/if}}</div>
                         {{/if}}
                         {{#if @config.post.displayDate}}
-                            <div class=zaman>
+                            <time datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
                                 {{date modifiedAt @config.custom.formatDateCustom}}
-                            </div>
+                            </time>
                         </div>
                         {{/if}}
                 {{/checkIfAny}}
