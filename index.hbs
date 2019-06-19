@@ -1,5 +1,7 @@
 {{> head}}
-
+{{#checkIf @config.custom.frontSource '==' "post" }}
+   {{> frontpage-post}}
+   {{else}}
     <main class=wrap-page>
         {{#each featuredPosts}}
        <article class=card>
@@ -54,7 +56,7 @@
                         {{/checkIf}}
                   </time>
                </div>
-            </div>   
+            </div>
 
         </article>
         {{/each}}
@@ -62,5 +64,5 @@
         {{> pagination}}
 
     </main>
-
+{{/checkIf}}
 {{> footer}}
