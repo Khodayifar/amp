@@ -6,11 +6,11 @@
         "mainMenu": "Main menu"
     },
     "renderer": {
-        "relatedPostsNumber": 3,
-        "renderRelatedPosts": true,
+        "relatedPostsNumber": 0,
+        "renderRelatedPosts": false,
         "renderSimilarPosts": false,
-        "renderPrevNextPosts": true,
-        "createContentStructure": true,
+        "renderPrevNextPosts": false,
+        "createContentStructure": false,
         "createSearchPage": true,
         "create404page": true,
         "customHTML": {
