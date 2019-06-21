@@ -46,22 +46,45 @@
 
                 {{{text}}}
 
-                {{#checkIfAny @config.post.displayTags @config.post.displayDate}}
-                       <div class=card-meta>
-                        {{#if @config.post.displayTags}}
-                            <div>{{#if tags}}
-                                    {{#each tags}}
-                                           <a class=btn href="{{url}}">{{name}}</a>
-                                     {{/each}}
-                            {{/if}}</div>
-                        {{/if}}
-                        {{#if @config.post.displayDate}}
-                            <time datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
-                                {{date modifiedAt @config.custom.formatDateCustom}}
-                            </time>
-                        </div>
-                        {{/if}}
-                {{/checkIfAny}}
+                <div class=card-meta>
+                  <div>
+                    {{#author}}
+                       {{#if @config.custom.authorAuthor}}
+                       {{#if avatar}}
+                       <a href="{{url}}" class="feed__author invert">
+                         {{#avatarImage}}
+                           <amp-img
+                               src="{{url}}"
+                               alt="{{alt}}"
+                               class="card-meta-author"
+                               height="{{height}}"
+                               layout="responsive"
+                               width="{{width}}">
+                           </amp-img>
+                         {{/avatarImage}}
+                       </a>
+                       {{/if}}
+                       {{/if}}
+                    {{/author}}
+                  {{#if tags}}
+                   {{#each tags}}
+                     <a class=btn href="{{url}}">{{name}}</a>
+                   {{/each}}
+                  {{/if}}
+                  </div>
+                  <div class=time-author>
+                    {{#author}}
+                    <a href="{{url}}">{{name}}</a>
+                    {{/author}}
+                  <time datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
+                        {{#checkIf @config.custom.formatDate '!=' 'custom'}}
+                           {{date modifiedAt @config.custom.formatDate}}
+                        {{else}}
+                           {{date modifiedAt @config.custom.formatDateCustom}}
+                        {{/checkIf}}
+                  </time>
+                </div>
+               </div>
             </div>
         </article>
 
