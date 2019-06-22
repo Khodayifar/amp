@@ -80,7 +80,6 @@
         {{/if}}
     {{/featuredImage}}
 
-
     <div class=card-text>
         <h2>
             <a href="{{url}}"> {{title}} </a>
@@ -89,11 +88,35 @@
         <p>{{{excerpt}}}</p>
 
         <div class=card-meta>
-          <div>{{#if tags}}
+          <div>
+            {{#author}}
+               {{#if @config.custom.authorAuthor}}
+               {{#if avatar}}
+               <a href="{{url}}" class="feed__author invert">
+                 {{#avatarImage}}
+                   <amp-img
+                       src="{{url}}"
+                       alt="{{alt}}"
+                       class="card-meta-author"
+                       height="{{height}}"
+                       layout="responsive"
+                       width="{{width}}">
+                   </amp-img>
+                 {{/avatarImage}}
+               </a>
+               {{/if}}
+               {{/if}}
+            {{/author}}
+          {{#if tags}}
            {{#each tags}}
              <a class=btn href="{{url}}">{{name}}</a>
            {{/each}}
-          {{/if}}</div>
+          {{/if}}
+          </div>
+          <div class=time-author>
+            {{#author}}
+            <a href="{{url}}">{{name}}</a>
+            {{/author}}
           <time datetime="{{date modifiedAt 'YYYY-MM-DDTHH:mm'}}">
                 {{#checkIf @config.custom.formatDate '!=' 'custom'}}
                    {{date modifiedAt @config.custom.formatDate}}
@@ -101,6 +124,7 @@
                    {{date modifiedAt @config.custom.formatDateCustom}}
                 {{/checkIf}}
           </time>
+        </div>
        </div>
     </div>
 
