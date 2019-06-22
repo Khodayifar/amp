@@ -3,25 +3,28 @@
   <div class="page-title">
           {{#author}}
               {{#if avatar}}
-                  {{#avatarImage}}
+                {{#avatarImage}}
                   <amp-img
                       src="{{url}}"
                       alt="{{alt}}"
-                      class="page-title-author"
+                      class="avatar"
                       height="{{height}}"
                       layout="responsive"
                       width="{{width}}">
                   </amp-img>
-                  {{/avatarImage}}
+                {{/avatarImage}}
               {{/if}}
 
               <h1>
-                  {{name}} <sup>({{postsNumber}})</sup>
+                  {{name}}
               </h1>
-
               {{#if description}}
                   <p>{{description}}</p>
               {{/if}}
+              {{#if email}}
+              <p><a href="{{email}}" rel=nofollow target=_blank>پیام‌رسان</a></p>
+              {{/if}}
+
           {{/author}}
       </div>
     {{#each posts}}
